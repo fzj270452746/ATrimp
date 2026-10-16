@@ -1,0 +1,10 @@
+platform :ios, '15.0'
+use_frameworks!
+inhibit_all_warnings!
+
+target 'ATrimp' do
+  pod 'SnapKit'
+  pod 'GRDB.swift'
+  pod 'KeychainAccess'
+  pod 'IQKeyboardManagerSwift'
+end

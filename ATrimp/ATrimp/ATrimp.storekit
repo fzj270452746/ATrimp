@@ -1,0 +1,140 @@
+{
+  "identifier": "1100FBD1-7566-4226-874B-9D6F785EDD99",
+  "nonRenewingSubscriptions": [],
+  "products": [
+    {
+      "displayPrice": "0.99",
+      "familyShareable": false,
+      "internalID": "2656FF1F-C4E1-4604-B1E5-40221889E549",
+      "localizations": [
+        {
+          "description": "A note from the road.",
+          "displayName": "Postcard",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "lenxywkgfxfapppp",
+      "referenceName": "Postcard",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "1.99",
+      "familyShareable": false,
+      "internalID": "0A80916A-143D-484F-BDC3-5F7F716CBF6A",
+      "localizations": [
+        {
+          "description": "Make it official.",
+          "displayName": "Stamp",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "sfvchfreqqvylbsq",
+      "referenceName": "Stamp",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "2.99",
+      "familyShareable": false,
+      "internalID": "2CB3138B-BDD3-4AEF-A077-F8477AFBE2DE",
+      "localizations": [
+        {
+          "description": "For the next wrong turn.",
+          "displayName": "Compass",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "com.atrim.gift.compass",
+      "referenceName": "Compass",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "4.99",
+      "familyShareable": false,
+      "internalID": "E2F8EE43-D546-42FC-BBBE-3B1A987712E8",
+      "localizations": [
+        {
+          "description": "Folded, torn, loved.",
+          "displayName": "Pocket Map",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "uqolhbwnthilopmj",
+      "referenceName": "Pocket Map",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "9.99",
+      "familyShareable": false,
+      "internalID": "0C2019E3-B64F-44B7-B320-F4619A8300A4",
+      "localizations": [
+        {
+          "description": "For the long wait.",
+          "displayName": "Thermos",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "hfwagmrmjavoovhr",
+      "referenceName": "Thermos",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "19.99",
+      "familyShareable": false,
+      "internalID": "8F842DCD-9944-42A5-8EE9-2B8E3A0BA676",
+      "localizations": [
+        {
+          "description": "Write it down properly.",
+          "displayName": "Field Notebook",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "hruextnukwkqbiax",
+      "referenceName": "Field Notebook",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "49.99",
+      "familyShareable": false,
+      "internalID": "A95463AA-96B5-4A24-ABE5-E664AF8310D7",
+      "localizations": [
+        {
+          "description": "Carry-on sized gratitude.",
+          "displayName": "Cabin Bag",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "ygccqcprsndkwhqd",
+      "referenceName": "Cabin Bag",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "99.99",
+      "familyShareable": false,
+      "internalID": "6960D62A-72C6-4282-B9EC-09DB86019265",
+      "localizations": [
+        {
+          "description": "The whole journey.",
+          "displayName": "Round Trip",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "vlhydxmeamgmqanv",
+      "referenceName": "Round Trip",
+      "type": "Consumable"
+    }
+  ],
+  "settings": {
+    "_applicationInternalID": "",
+    "_developerTeamID": "",
+    "_failTransactionsEnabled": false,
+    "_lastSynchronizedDate": 0,
+    "_locale": "en_US",
+    "_storefront": "USA",
+    "_storeKitErrors": []
+  },
+  "subscriptionGroups": [],
+  "version": {
+    "major": 3,
+    "minor": 0
+  }
+}
