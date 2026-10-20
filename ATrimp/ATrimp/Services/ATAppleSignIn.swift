@@ -17,8 +17,11 @@ final class ATAppleSignIn: NSObject {
     static let shared = ATAppleSignIn()
 
     private var completion: ((Result<ATAppleIdentity, Error>) -> Void)?
+    // The controller must be retained until the delegate callbacks arrive.
+    private var controller: ASAuthorizationController?
 
     func start(completion: @escaping (Result<ATAppleIdentity, Error>) -> Void) {
+        guard self.completion == nil else { return }
         self.completion = completion
 
         let request = ASAuthorizationAppleIDProvider().createRequest()
@@ -27,12 +30,14 @@ final class ATAppleSignIn: NSObject {
         let controller = ASAuthorizationController(authorizationRequests: [request])
         controller.delegate = self
         controller.presentationContextProvider = self
+        self.controller = controller
         controller.performRequests()
     }
 
     private func finish(with result: Result<ATAppleIdentity, Error>) {
         let handler = completion
         completion = nil
+        controller = nil
         handler?(result)
     }
 }
@@ -65,10 +70,19 @@ extension ATAppleSignIn: ASAuthorizationControllerDelegate {
         controller: ASAuthorizationController,
         didCompleteWithError error: Error
     ) {
-        if let authorizationError = error as? ASAuthorizationError,
-           authorizationError.code == .canceled {
-            finish(with: .failure(ATAppleSignInError.cancelled))
-            return
+        if let authorizationError = error as? ASAuthorizationError {
+            switch authorizationError.code {
+            case .canceled:
+                finish(with: .failure(ATAppleSignInError.cancelled))
+                return
+            case .notHandled, .failed, .unknown:
+                // 1000 (unknown) usually means the Sign in with Apple capability is
+                // missing from the build, or the device is not signed in to iCloud.
+                finish(with: .failure(ATAppleSignInError.unavailable))
+                return
+            default:
+                break
+            }
         }
         finish(with: .failure(error))
     }
@@ -88,6 +102,7 @@ extension ATAppleSignIn: ASAuthorizationControllerPresentationContextProviding {
 enum ATAppleSignInError: LocalizedError {
     case cancelled
     case unexpectedCredential
+    case unavailable
 
     var errorDescription: String? {
         switch self {
@@ -95,6 +110,8 @@ enum ATAppleSignInError: LocalizedError {
             return nil
         case .unexpectedCredential:
             return "Apple did not return a usable account. Please try again."
+        case .unavailable:
+            return "Sign in with Apple isn't available in this build. Make sure the device is signed in to iCloud and try again."
         }
     }
 }
